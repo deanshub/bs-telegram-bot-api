@@ -4,6 +4,6 @@ open Expect.Operators;
 
 describe("TelegramBot", () =>
   test("instanciate a new bot", () =>
-    expect(1 + 1) |> toBe(2)
+    expect(TelegramBot.createBot("TOKEN")) |> not_ |> toBe(Js.undefined)
   )
 );
