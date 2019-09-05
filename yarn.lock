@@ -647,10 +647,10 @@ browser-resolve@^1.11.3:
   dependencies:
     resolve "1.1.7"
 
-bs-platform@^4.0.18:
-  version "4.0.18"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/bs-platform/-/bs-platform-4.0.18.tgz#d17b8693ba1f714d9b27e0ddb365f2069ba4b8a0"
-  integrity sha1-0XuGk7ofcU2bJ+Dds2XyBpukuKA=
+bs-platform@^5.0.6:
+  version "5.0.6"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/bs-platform/-/bs-platform-5.0.6.tgz#88c13041fb020479800de3d82c680bf971091425"
+  integrity sha1-iMEwQfsCBHmADePYLGgL+XEJFCU=
 
 bser@^2.0.0:
   version "2.1.0"

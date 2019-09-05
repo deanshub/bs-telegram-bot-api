@@ -1,7 +1,8 @@
-type creationOptions =
-  | Option({. polling: bool});
+type t;
 
-type onEvent = (string, unit) => unit;
+type listener('a) = 'a => unit;
+
+type onEvent('a) = (string, listener('a)) => unit;
 
 type startPollingOptions =
   | Option({. restart: bool});
@@ -14,15 +15,18 @@ type stopPollingOptions =
       },
     );
 
-type telegramBot = {
-  on: onEvent,
-  startPolling: startPollingOptions => Js.Promise.t(unit),
-  stopPolling: stopPollingOptions => Js.Promise.t(unit),
-};
-
 [@bs.new] [@bs.module]
-external createBot: (string, creationOptions) => telegramBot =
+external createBot: (string, TelegramBotOptions.t) => t =
   "node-telegram-bot-api";
 
-let create = (token: string, options: creationOptions): telegramBot =>
-  createBot(token, options);
+[@bs.send] external on: (t, string, listener('a)) => unit = "on";
+
+let onMessage = (bot: t, event: listener('a)): unit =>
+  on(bot, "message", event);
+
+let create = (~token: string, options): t => createBot(token, options);
+
+type options = {
+  polling: option(bool),
+  webHook: option(bool),
+};
