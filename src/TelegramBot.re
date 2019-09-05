@@ -24,7 +24,5 @@ type telegramBot = {
 external createBot: (string, creationOptions) => telegramBot =
   "node-telegram-bot-api";
 
-let create = (token: string, options: creationOptions): telegramBot => {
-  let bot = createBot(token, options);
-  bot;
-};
+let create = (token: string, options: creationOptions): telegramBot =>
+  createBot(token, options);
